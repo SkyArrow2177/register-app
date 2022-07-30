@@ -1,3 +1,28 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "next/core-web-vitals",
+    "prettier",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["simple-import-sort", "prettier", "react-hooks", "no-relative-import-paths", "react"],
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "no-relative-import-paths/no-relative-import-paths": ["warn", { "allowSameFolder": true }],
+    "sort-keys": ["error", "asc", { "caseSensitive": false, "natural": true, "minKeys": 2 }],
+    "react/jsx-sort-props": ["error", { "ignoreCase": true }]
+  }
 }
