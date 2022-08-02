@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "ab": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@emotion/react": "^11.10.0",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.18.10",
+    "@next/bundle-analyzer": "^12.2.3",
     "@types/node": "18.6.2",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
