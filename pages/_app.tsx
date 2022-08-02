@@ -11,7 +11,7 @@ import { DefaultSeo } from 'next-seo';
 import { useState } from 'react';
 
 import AppLayout from '@/components/app/AppLayout';
-import SEO from '@/components/app/next-seo.config';
+import SEO from '@/components/common/next-seo.config';
 
 type CustomAppProps = AppProps & {
   initialColorScheme: ColorScheme;
