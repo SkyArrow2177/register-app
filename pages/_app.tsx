@@ -7,7 +7,10 @@ import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { setCookies } from 'cookies-next';
 import type { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo';
 import { useState } from 'react';
+
+import SEO from '@/components/app/next-seo.config';
 
 type CustomAppProps = AppProps & {
   initialColorScheme: ColorScheme;
@@ -38,6 +41,7 @@ export default function App({ Component, pageProps, initialColorScheme }: Custom
       <MantineProvider theme={themeOverride} withGlobalStyles withNormalizeCSS>
         <NotificationsProvider>
           <QueryClientProvider client={queryClient}>
+            <DefaultSeo {...SEO} />
             <Component {...pageProps} />
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
