@@ -1,10 +1,10 @@
 import CenteredContainer from '@/components/common/CenteredContainer';
-import LoginForm from '@/components/login/LoginForm';
+import LoginForm from '@/components/user/LoginForm';
 import { withLoginPage, withLoginPageSSR } from '@/hooks/authHooks';
 
 function Login() {
   return (
-    <CenteredContainer size='xs'>
+    <CenteredContainer size={450}>
       <LoginForm />
     </CenteredContainer>
   );

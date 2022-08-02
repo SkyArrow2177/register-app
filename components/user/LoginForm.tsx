@@ -1,13 +1,24 @@
 import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { ButtonProps } from '@mantine/core';
-import { Button, Paper, PasswordInput, Space, Text, TextInput } from '@mantine/core';
+import {
+  Button,
+  Divider,
+  Group,
+  Paper,
+  PasswordInput,
+  Space,
+  Text,
+  TextInput,
+} from '@mantine/core';
 import {
   IconArrowNarrowRight,
   IconAt,
   IconCheck,
   IconDashboard,
+  IconFileArrowRight,
   IconFingerprint,
+  IconUserPlus,
 } from '@tabler/icons';
 import { useForm } from 'react-hook-form';
 
@@ -83,6 +94,16 @@ export default function LoginForm() {
           {...loginButtonProps}
         >
           Log in
+        </Button>
+        <Divider my='sm' />
+        <Button
+          color='orange'
+          fullWidth
+          leftIcon={<IconUserPlus />}
+          rightIcon={<IconFileArrowRight />}
+          variant='light'
+        >
+          New user sign up
         </Button>
       </form>
     </Paper>
