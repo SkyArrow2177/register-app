@@ -16,7 +16,14 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["simple-import-sort", "prettier", "react-hooks", "no-relative-import-paths", "react", "@typescript-eslint"],
+  "plugins": [
+    "simple-import-sort",
+    "prettier",
+    "react-hooks",
+    "no-relative-import-paths",
+    "react",
+    "@typescript-eslint"
+  ],
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
