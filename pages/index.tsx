@@ -1,9 +1,9 @@
 import { Button, Text } from '@mantine/core';
-import { withAuthedPage, withAuthedPageSSR } from 'hooks/authHooks';
 import { useAuthUser } from 'next-firebase-auth';
 
 import AppLogo from '@/components/app/AppLogo';
 import ColorSchemeToggle from '@/components/app/ColorSchemeToggle';
+import { withAuthedPage, withAuthedPageSSR } from '@/hooks/authHooks';
 
 function Home() {
   const user = useAuthUser();

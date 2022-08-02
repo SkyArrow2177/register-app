@@ -7,4 +7,4 @@ export const loginSchema = z
   })
   .required();
 
-export type LoginT = z.infer<typeof loginSchema>;
+export type LoginRequest = z.infer<typeof loginSchema>;

@@ -11,8 +11,8 @@ import {
 } from '@tabler/icons';
 import { useForm } from 'react-hook-form';
 
-import type { LoginT } from '@/types/loginT';
-import { loginSchema } from '@/types/loginT';
+import type { LoginRequest } from '@/types/loginRequest';
+import { loginSchema } from '@/types/loginRequest';
 
 export default function LoginForm() {
   // Observe form state
@@ -21,12 +21,12 @@ export default function LoginForm() {
     handleSubmit,
     setError,
     formState: { errors, isValidating, isSubmitting, isSubmitSuccessful },
-  } = useForm<LoginT>({
+  } = useForm<LoginRequest>({
     resolver: zodResolver(loginSchema),
   });
 
   // Event handler for logging in
-  function onSubmit({ email, password }: LoginT) {
+  function onSubmit({ email, password }: LoginRequest) {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password).catch(error => {
       if (error.code === 'auth/wrong-password') {
