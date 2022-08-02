@@ -12,13 +12,19 @@ import { useState } from 'react';
 
 import AppLayout from '@/components/app/AppLayout';
 import SEO from '@/components/common/next-seo.config';
+import initAuth from '@/lib/initAuth';
 
 type CustomAppProps = AppProps & {
   initialColorScheme: ColorScheme;
 };
 
+// Enable Firebase auth
+initAuth();
+
+// React-query
 const queryClient = new QueryClient();
 
+// Custom app
 export default function App({ Component, pageProps, initialColorScheme }: CustomAppProps) {
   // Dark mode support
   const [colorScheme, setColorScheme] = useState<ColorScheme>(initialColorScheme);
