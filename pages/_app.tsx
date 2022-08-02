@@ -1,3 +1,4 @@
+import type { MantineThemeOverride } from '@mantine/core';
 import { ColorSchemeProvider, MantineProvider } from '@mantine/core';
 import { NotificationsProvider } from '@mantine/notifications';
 import type { ColorScheme } from '@mantine/styles';
@@ -26,9 +27,15 @@ export default function App({ Component, pageProps, initialColorScheme }: Custom
     });
   };
 
+  const themeOverride: MantineThemeOverride = {
+    colorScheme,
+    fontFamily:
+      'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+  };
+
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-      <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
+      <MantineProvider theme={themeOverride} withGlobalStyles withNormalizeCSS>
         <NotificationsProvider>
           <QueryClientProvider client={queryClient}>
             <Component {...pageProps} />
