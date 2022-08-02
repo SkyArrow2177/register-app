@@ -11,6 +11,7 @@ interface AppLayoutProps {
 const links = [
   { route: '/view', label: 'View', activeRoutes: ['/view'] },
   { route: '/create', label: 'Create', activeRoutes: ['/create'] },
+  { route: '/manage', label: 'Manage', activeRoutes: ['/manage'] },
 ];
 
 export default function AppLayout({ children }: AppLayoutProps) {

@@ -62,6 +62,15 @@
     "react/jsx-curly-brace-presence": [
       "warn"
     ],
+    "react/no-unescaped-entities": [
+      0,
+      {
+        "forbid": [
+          ">",
+          "}"
+        ]
+      }
+    ],
     "react/function-component-definition": [
       "error",
       {

@@ -1,10 +1,9 @@
 import { Text } from '@mantine/core';
-import type { NextPage } from 'next';
 
 import AppLogo from '@/components/app/AppLogo';
 import ColorSchemeToggle from '@/components/app/ColorSchemeToggle';
 
-const Home: NextPage = () => {
+export default function Home() {
   return (
     <>
       <Text>Hello</Text>
@@ -12,6 +11,4 @@ const Home: NextPage = () => {
       <ColorSchemeToggle />
     </>
   );
-};
-
-export default Home;
+}
