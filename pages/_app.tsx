@@ -10,6 +10,7 @@ import type { AppProps } from 'next/app';
 import { DefaultSeo } from 'next-seo';
 import { useState } from 'react';
 
+import AppLayout from '@/components/app/AppLayout';
 import SEO from '@/components/app/next-seo.config';
 
 type CustomAppProps = AppProps & {
@@ -42,7 +43,9 @@ export default function App({ Component, pageProps, initialColorScheme }: Custom
         <NotificationsProvider>
           <QueryClientProvider client={queryClient}>
             <DefaultSeo {...SEO} />
-            <Component {...pageProps} />
+            <AppLayout>
+              <Component {...pageProps} />
+            </AppLayout>
             <ReactQueryDevtools initialIsOpen={false} />
           </QueryClientProvider>
         </NotificationsProvider>
