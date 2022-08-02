@@ -24,7 +24,7 @@ export default function NotFoundCard() {
           leftIcon={<IconLayoutColumns />}
           variant='light'
         >
-          View articles
+          View registry
         </Button>
       </Link>
     </Paper>

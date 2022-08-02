@@ -84,7 +84,6 @@ export default function LoginForm() {
         >
           Log in
         </Button>
-        <Space h='md' />
       </form>
     </Paper>
   );
