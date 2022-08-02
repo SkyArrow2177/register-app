@@ -3,7 +3,7 @@ import { IconLayoutColumns } from '@tabler/icons';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import clipArt from '@/components/common/404.png';
+import clipArt from '@/components/404/404.png';
 
 export default function NotFoundCard() {
   return (
