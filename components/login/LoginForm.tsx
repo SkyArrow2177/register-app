@@ -1,8 +1,7 @@
 import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { ButtonProps } from '@mantine/core';
-import { Paper, PasswordInput, Space, Text, TextInput } from '@mantine/core';
-import { Button } from '@mantine/core';
+import { Button, Paper, PasswordInput, Space, Text, TextInput } from '@mantine/core';
 import {
   IconArrowNarrowRight,
   IconAt,

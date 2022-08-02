@@ -11,7 +11,7 @@ const initAuth = () => {
       maxAge: 12 * 24 * 60 * 60 * 1000,
       overwrite: true,
       path: '/',
-      sameSite: 'strict',
+      sameSite: 'lax',
       secure: process.env.NEXT_PUBLIC_COOKIE_SECURE === 'true',
       signed: true,
     },
