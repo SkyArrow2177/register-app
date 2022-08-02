@@ -27,13 +27,52 @@
   "rules": {
     "simple-import-sort/imports": "error",
     "simple-import-sort/exports": "error",
-    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
-    "no-relative-import-paths/no-relative-import-paths": ["error", { "allowSameFolder": true }],
-//    "sort-keys": ["error", "asc", { "caseSensitive": false, "natural": true, "minKeys": 2 }],
-    "react/jsx-sort-props": ["error", { "ignoreCase": true }],
-    "@typescript-eslint/consistent-type-imports": ["error"],
-    "@typescript-eslint/no-unused-vars": ["warn"],
-    "react/self-closing-comp": ["error"],
-    "react/jsx-boolean-value": ["error"]
+    "prettier/prettier": [
+      "error",
+      {},
+      {
+        "usePrettierrc": true
+      }
+    ],
+    "no-relative-import-paths/no-relative-import-paths": [
+      "error",
+      {
+        "allowSameFolder": true
+      }
+    ],
+    //    "sort-keys": ["error", "asc", { "caseSensitive": false, "natural": true, "minKeys": 2 }],
+    "react/jsx-sort-props": [
+      "error",
+      {
+        "ignoreCase": true
+      }
+    ],
+    "@typescript-eslint/consistent-type-imports": [
+      "error"
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn"
+    ],
+    "react/self-closing-comp": [
+      "error"
+    ],
+    "react/jsx-boolean-value": [
+      "error"
+    ],
+    "react/jsx-curly-brace-presence": [
+      "warn"
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": [
+          "function-declaration",
+          "arrow-function"
+        ],
+        "unnamedComponents": [
+          "arrow-function"
+        ]
+      }
+    ]
   }
 }
