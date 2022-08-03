@@ -2,7 +2,7 @@ import { AuthAction, withAuthUser, withAuthUserTokenSSR } from 'next-firebase-au
 
 // For any page which needs to be authed
 export const withAuthedPage = withAuthUser({
-  whenUnauthedBeforeInit: AuthAction.REDIRECT_TO_LOGIN,
+  whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
   whenUnauthedAfterInit: AuthAction.REDIRECT_TO_LOGIN,
 });
 
@@ -16,7 +16,7 @@ export const withAuthedPageSSR = () =>
 export const withLoginPage = withAuthUser({
   whenAuthed: AuthAction.REDIRECT_TO_APP,
   // whenUnauthedAfterInit: AuthAction.RENDER,
-  // whenUnauthedBeforeInit: AuthAction.RENDER,
+  whenUnauthedBeforeInit: AuthAction.SHOW_LOADER,
 });
 
 // Using SSR means server-side redirects, thus if a user is already logged in,

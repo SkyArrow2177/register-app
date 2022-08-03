@@ -1,4 +1,3 @@
-import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
 import { zodResolver } from '@hookform/resolvers/zod';
 import type { ButtonProps } from '@mantine/core';
 import { Button, Divider, Paper, PasswordInput, Space, Text, TextInput } from '@mantine/core';
@@ -7,53 +6,68 @@ import {
   IconAt,
   IconCheck,
   IconFileArrowRight,
+  IconFilePencil,
   IconFingerprint,
+  IconSignature,
 } from '@tabler/icons';
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
-import type { LoginRequest } from '@/types/loginRequest';
-import { loginSchema } from '@/types/loginRequest';
+import type { SignupRequest } from '@/types/signupRequest';
+import { signupSchema } from '@/types/signupRequest';
 
-export default function LoginForm() {
-  // Observe form state
+export default function SignupForm() {
   const {
     register,
     handleSubmit,
     setError,
     formState: { errors, isValidating, isSubmitting, isSubmitSuccessful },
-  } = useForm<LoginRequest>({
-    resolver: zodResolver(loginSchema),
+  } = useForm<SignupRequest>({
+    resolver: zodResolver(signupSchema),
   });
 
-  // Event handler for logging in
-  function onSubmit({ email, password }: LoginRequest) {
-    const auth = getAuth();
-    return signInWithEmailAndPassword(auth, email, password).catch(error => {
-      if (error.code === 'auth/wrong-password') {
-        setError('password', { type: 'server', message: error.message }, { shouldFocus: true });
-      } else {
-        setError('email', { type: 'server', message: error.message }, { shouldFocus: true });
-      }
-    });
+  function onSubmit(submission: SignupRequest) {
+    console.log(submission);
   }
 
   // Submit button status indicator
-  let loginButtonProps: Partial<ButtonProps> = { rightIcon: <IconArrowNarrowRight /> };
+  let submitButtonProps: Partial<ButtonProps> = { rightIcon: <IconFileArrowRight /> };
   if (isValidating || isSubmitting) {
-    loginButtonProps = { loading: true, loaderPosition: 'right' };
+    submitButtonProps = { loading: true, loaderPosition: 'right' };
   } else if (isSubmitSuccessful) {
-    loginButtonProps = { rightIcon: <IconCheck /> };
+    submitButtonProps = { rightIcon: <IconCheck /> };
   }
 
   return (
     <Paper p='md' pt={2} shadow='xl' style={{ width: '100%' }}>
-      <Text color='lime' component='h1' size='xl' weight={700}>
-        Log in
+      <Text color='orange' component='h1' size='xl' weight={700}>
+        Sign up
       </Text>
-      <Text>Log in to access your family registry.</Text>
+      <Text>Create a new family registry here.</Text>
       <Space h='sm' />
       <form noValidate onSubmit={handleSubmit(onSubmit)}>
+        <TextInput
+          error={errors?.firstname?.message}
+          icon={<IconFilePencil size={16} />}
+          id='firstname'
+          label='Firstname'
+          placeholder='Jane'
+          required
+          type='text'
+          {...register('firstname')}
+        />
+        <Space h='xs' />
+        <TextInput
+          error={errors?.lastname?.message}
+          icon={<IconSignature size={16} />}
+          id='lastname'
+          label='Lastname'
+          placeholder='Doe'
+          required
+          type='text'
+          {...register('lastname')}
+        />
+        <Space h='xs' />
         <TextInput
           error={errors?.email?.message}
           icon={<IconAt size={16} />}
@@ -75,19 +89,20 @@ export default function LoginForm() {
           {...register('password')}
         />
         <Space h='md' />
-        <Button color='lime' fullWidth type='submit' variant='light' {...loginButtonProps}>
-          Log in
+
+        <Button color='orange' fullWidth variant='light' {...submitButtonProps} type='submit'>
+          Sign up
         </Button>
         <Divider my='sm' />
-        <Link href='/signup' passHref>
+        <Link href='/login' passHref>
           <Button
-            color='orange'
+            color='lime'
             component='a'
             fullWidth
-            rightIcon={<IconFileArrowRight />}
+            rightIcon={<IconArrowNarrowRight />}
             variant='light'
           >
-            New user sign up
+            Already have an account?
           </Button>
         </Link>
       </form>
