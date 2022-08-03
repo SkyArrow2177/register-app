@@ -7,7 +7,7 @@ import clipArt from '@/components/404/404.png';
 
 export default function NotFoundCard() {
   return (
-    <Paper p='md' pt={2} shadow='xl' style={{ width: '100%' }}>
+    <Paper style={{ width: '100%' }}>
       <Text color='indigo' component='h1' mb={0} size='xl' weight={700}>
         Oops!
       </Text>

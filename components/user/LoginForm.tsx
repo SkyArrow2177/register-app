@@ -47,7 +47,7 @@ export default function LoginForm() {
   }
 
   return (
-    <Paper p='md' pt={2} shadow='xl' style={{ width: '100%' }}>
+    <Paper style={{ width: '100%' }}>
       <Text color='lime' component='h1' size='xl' weight={700}>
         Log in
       </Text>

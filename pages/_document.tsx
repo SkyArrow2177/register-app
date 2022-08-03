@@ -11,7 +11,7 @@ export default class _Document extends Document {
       <Html>
         <Head>
           <link
-            href='https://fonts.googleapis.com/css2?family=Inter&display=optional'
+            href='https://fonts.googleapis.com/css2?family=Inter&display=swap'
             rel='stylesheet'
           />
         </Head>

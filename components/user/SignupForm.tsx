@@ -14,7 +14,7 @@ import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
 import type { SignupRequest } from '@/types/signupRequest';
-import { signupSchema } from '@/types/signupRequest';
+import { signupPasswordErrorMessage, signupSchema } from '@/types/signupRequest';
 
 export default function SignupForm() {
   const {
@@ -39,7 +39,7 @@ export default function SignupForm() {
   }
 
   return (
-    <Paper p='md' pt={2} shadow='xl' style={{ width: '100%' }}>
+    <Paper style={{ width: '100%' }}>
       <Text color='orange' component='h1' size='xl' weight={700}>
         Sign up
       </Text>
@@ -80,9 +80,11 @@ export default function SignupForm() {
         />
         <Space h='xs' />
         <PasswordInput
+          description={signupPasswordErrorMessage}
           error={errors?.password?.message}
           icon={<IconFingerprint size={16} />}
           id='password'
+          inputWrapperOrder={['label', 'description', 'error', 'input']}
           label='Password'
           placeholder='super-secret-password'
           required

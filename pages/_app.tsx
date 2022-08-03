@@ -41,6 +41,16 @@ export default function App({ Component, pageProps, initialColorScheme }: Custom
     colorScheme,
     fontFamily:
       'Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+    components: {
+      Paper: {
+        defaultProps: {
+          p: 'md',
+          pt: 2,
+          shadow: 'xl',
+          withBorder: true,
+        },
+      },
+    },
   };
 
   return (

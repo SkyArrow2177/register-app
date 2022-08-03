@@ -3,6 +3,9 @@ import * as z from 'zod';
 
 import { emailSchema, nameSchema } from '@/types/utilSchema';
 
+export const signupPasswordErrorMessage =
+  'Password must have at least 8 characters, including at least 1 lowercase letter, 1 uppercase letter, and 1 number.';
+
 export const signupSchema = z.object({
   firstname: nameSchema,
   lastname: nameSchema,
@@ -16,7 +19,7 @@ export const signupSchema = z.object({
         minLowercase: 1,
         minSymbols: 0,
       }),
-    'Password must have at least 8 characters, including at least 1 lowercase letter, 1 uppercase letter, and 1 number.',
+    signupPasswordErrorMessage,
   ),
 });
 
