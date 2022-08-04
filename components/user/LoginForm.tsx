@@ -12,7 +12,7 @@ import {
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
-import type { LoginRequest } from '@/types/loginRequest';
+import type { LoginSchemaT } from '@/types/loginRequest';
 import { loginSchema } from '@/types/loginRequest';
 
 export default function LoginForm() {
@@ -22,12 +22,12 @@ export default function LoginForm() {
     handleSubmit,
     setError,
     formState: { errors, isValidating, isSubmitting, isSubmitSuccessful },
-  } = useForm<LoginRequest>({
+  } = useForm<LoginSchemaT>({
     resolver: zodResolver(loginSchema),
   });
 
   // Event handler for logging in
-  function onSubmit({ email, password }: LoginRequest) {
+  function onSubmit({ email, password }: LoginSchemaT) {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password).catch(error => {
       if (error.code === 'auth/wrong-password') {

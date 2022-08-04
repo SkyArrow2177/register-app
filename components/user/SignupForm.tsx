@@ -13,8 +13,8 @@ import {
 import Link from 'next/link';
 import { useForm } from 'react-hook-form';
 
-import type { SignupRequest } from '@/types/signupRequest';
-import { signupPasswordErrorMessage, signupSchema } from '@/types/signupRequest';
+import type { SignupSchemaT } from '@/types/signupRequest';
+import { signupPasswordError, signupSchema } from '@/types/signupRequest';
 
 export default function SignupForm() {
   const {
@@ -22,11 +22,11 @@ export default function SignupForm() {
     handleSubmit,
     setError,
     formState: { errors, isValidating, isSubmitting, isSubmitSuccessful },
-  } = useForm<SignupRequest>({
+  } = useForm<SignupSchemaT>({
     resolver: zodResolver(signupSchema),
   });
 
-  function onSubmit(submission: SignupRequest) {
+  function onSubmit(submission: SignupSchemaT) {
     console.log(submission);
   }
 
@@ -80,7 +80,7 @@ export default function SignupForm() {
         />
         <Space h='xs' />
         <PasswordInput
-          description={signupPasswordErrorMessage}
+          description={signupPasswordError}
           error={errors?.password?.message}
           icon={<IconFingerprint size={16} />}
           id='password'

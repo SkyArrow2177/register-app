@@ -1,26 +1,39 @@
 import isStrongPassword from 'validator/es/lib/isStrongPassword';
-import * as z from 'zod';
+import { z } from 'zod';
 
 import { emailSchema, nameSchema } from '@/types/utilSchema';
 
-export const signupPasswordErrorMessage =
+const signupPasswordError =
   'Password must have at least 8 characters, including at least 1 lowercase letter, 1 uppercase letter, and 1 number.';
 
-export const signupSchema = z.object({
-  firstname: nameSchema,
-  lastname: nameSchema,
-  email: emailSchema,
-  password: z.string().refine(
-    val =>
-      isStrongPassword(val, {
-        minLength: 8,
-        minNumbers: 1,
-        minUppercase: 1,
-        minLowercase: 1,
-        minSymbols: 0,
-      }),
-    signupPasswordErrorMessage,
-  ),
-});
+const signupSchema = z
+  .object({
+    firstname: nameSchema,
+    lastname: nameSchema,
+    email: emailSchema,
+    password: z.string().refine(
+      val =>
+        isStrongPassword(val, {
+          minLength: 8,
+          minNumbers: 1,
+          minUppercase: 1,
+          minLowercase: 1,
+          minSymbols: 0,
+        }),
+      signupPasswordError,
+    ),
+  })
+  .required();
 
-export type SignupRequest = z.infer<typeof signupSchema>;
+type SignupSchemaT = z.infer<typeof signupSchema>;
+
+const signupRequest = z
+  .object({
+    body: signupSchema,
+  })
+  .required();
+
+type SignupRequestT = z.infer<typeof signupRequest>;
+
+export type { SignupRequestT, SignupSchemaT };
+export { signupPasswordError, signupRequest, signupSchema };

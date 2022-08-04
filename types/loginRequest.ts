@@ -1,12 +1,23 @@
-import * as z from 'zod';
+import { z } from 'zod';
 
 import { emailSchema } from '@/types/utilSchema';
 
-export const loginSchema = z
+const loginSchema = z
   .object({
     email: emailSchema,
     password: z.string().min(1),
   })
   .required();
 
-export type LoginRequest = z.infer<typeof loginSchema>;
+type LoginSchemaT = z.infer<typeof loginSchema>;
+
+const loginRequest = z
+  .object({
+    body: loginSchema,
+  })
+  .required();
+
+type LoginRequestT = z.infer<typeof loginRequest>;
+
+export type { LoginRequestT, LoginSchemaT };
+export { loginRequest, loginSchema };

@@ -22,7 +22,8 @@
     "react-hooks",
     "no-relative-import-paths",
     "react",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "sort-exports"
   ],
   "rules": {
     "simple-import-sort/imports": "error",
@@ -69,6 +70,14 @@
           ">",
           "}"
         ]
+      }
+    ],
+    "sort-exports/sort-exports": [
+      "warn",
+      {
+        "sortDir": "asc",
+        "ignoreCase": true,
+        "sortExportKindFirst": "type"
       }
     ],
     "react/function-component-definition": [
